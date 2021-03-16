@@ -415,7 +415,7 @@ table {
 	transform:translate3d(0,0,0);
 	-webkit-transition-delay:0s;
 	transition-delay:0s;
-	border-bottom: 1px solid #E04343;
+	border-bottom: 1px solid #886E4C;
 }
 .show-menu .icon-list a {
 	opacity:1;
