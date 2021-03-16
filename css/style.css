@@ -504,7 +504,12 @@ filter:progid:DXImageTransform.Microsoft.Shadow(color=#000000, Direction=NaN, St
 /* ==========================================================================Hero========================================================================== */
 .hero {
 	background: url('../img/Bennett.png') right bottom no-repeat;
-	background-size: contain;
+    -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    
+    background-attachment:scroll;
 	padding:117px 0 0px 0;
 	height:auto;
 	background-color: #FBFBFB;
