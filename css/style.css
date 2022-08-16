@@ -89,11 +89,15 @@ html,html a {
 	text-shadow:1px 1px 1px rgba(0,0,0,0.004);
 }
 html,button,input,select,textarea {
-	font-family:'Futura',sans-serif;
+	font-family:'Optima',sans-serif;
 }
 body {
 	margin:0;
-	font-family: 'Open Sans',sans-serif;
+	font-family: 'Optima',sans-serif;
+}
+button {
+  all: unset;
+  cursor: pointer;
 }
 /* ==========================================================================Links========================================================================== */
 a:focus {
