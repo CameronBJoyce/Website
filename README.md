@@ -1,6 +1,2 @@
 # BENNETT JOYCE
-A Personal Site 
-WRITTEN IN: 
-	HTML5
-	JS
-	CSS
+A Personal Site
