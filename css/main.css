@@ -5481,6 +5481,11 @@ a:hover .c-logo__iris {
   height:555px
  }
 }
+#visualresume {display:none;}
+@media all and (min-width: 699px) {
+    #visualresume {display: block;}
+}
+
 .c-hero__eye {
  position:absolute;
  left:50%;
