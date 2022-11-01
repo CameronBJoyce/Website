@@ -1,78 +1,5 @@
 
 
-const seanBot = () => {
-  var $id = 0;
-
-  $(".js-beacon").click(function(e) {
-    e.preventDefault();
-    Beacon("open");
-    $(".js-beacon").blur();
-    $("#c-seanbot").addClass("hide");
-  });
-
-  $(".js-seanbot").click(function(e) {
-    e.preventDefault();
-    Beacon("close");
-    $(".js-seanbot").blur();
-    $("#c-seanbot").removeClass("hide");
-    $(".c-fab").addClass("hide");
-
-    $("#c-new-content").empty();
-    $(".c-seanbot__content .c-seanbot__options").removeClass("hide").addClass("active");
-  });
-
-  $(".js-seanbot-exit").click(function(e) {
-    e.preventDefault();
-    Beacon("close");
-    $(".js-seanbot-exit").blur();
-    $("#c-seanbot").addClass("hide");
-    $(".c-fab").removeClass("hide");
-
-    setTimeout(function () {
-      $("#c-new-content").empty();
-      $(".c-seanbot__content .c-seanbot__options").removeClass("hide").addClass("active");
-    }, 100 );
-
-  });
-
-  $(".c-seanbot__button").click(function(e) {
-    var $this = $(this);
-    e.preventDefault();
-
-    // var $delimiter = "_";
-    // var $num = $this.attr("id").split($delimiter)[1];
-    var $data = $this.data("question");
-    var $answer = "#c-seanbot-q .c-seanbot__answer--" + $data;
-    var $updated = "c-seanbot__answer--" + $id;
-    var $location = "#c-new-content";
-    var $buttons = ".c-seanbot__options";
-
-    $this.closest($buttons).removeClass("active").addClass("hide");
-    $($answer).clone(true,true).addClass("active").attr('id', $updated).appendTo($location);
-
-    var $animationId = "#" + $updated + " > div";
-
-    $($animationId).each(function(index){
-        var $this = $(this);
-        setTimeout(function () {
-          $this.addClass("active");
-
-          var msgDiv = $("#c-seanbot-content");
-          msgDiv.scrollTop = msgDiv.scrollHeight;
-
-          setTimeout(function () {
-            $(msgDiv).scrollTop($(msgDiv)[0].scrollHeight);
-          }, 10 );
-
-        }, index*1500);
-      });
-
-    $id++;
-    console.log($id);
-
-  });
-}
-
 
 const lazyLoad = () => {
   var myLazyLoad = new LazyLoad();
@@ -405,6 +332,12 @@ const wipLinks = () => {
 
 }
 
+$(document).ready(function() {
+    $('.cute-robot-v1').bind('touchstart touchend', function(e) {
+        e.preventDefault();
+        $(this).toggleClass('he');
+    });
+});
 
 $(document).ready(() => {
   lazyLoad();
@@ -417,5 +350,4 @@ $(document).ready(() => {
   aHover();
   wipLinks();
   blobs();
-  seanBot();
 });
