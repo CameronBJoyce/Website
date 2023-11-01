@@ -67,6 +67,23 @@ blockquote{
 	margin:2em;
 	color:#444
 }
+
+.buy-now-button {
+  background-color: #8c312c;
+  color: white;
+  font-size: 16px;
+  padding: 15px 32px;
+  border: none;
+  cursor: pointer;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+.buy-now-button:hover {
+  background-color: #8c3200;
+}
+
+
 pre{
 	overflow-x:auto;
 	color:#F2EFD9;
