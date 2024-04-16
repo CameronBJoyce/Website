@@ -7706,6 +7706,206 @@ Based on the provided information, the patient has a high risk of complications 
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=601ffaa1-e64c-4eb0-9c16-670217dfe9ab">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Next,-I-made-a-Tree-of-thought-prompt-this-follows-this-pattern:">Next, I made a Tree-of-thought prompt this follows this pattern:<a class="anchor-link" href="#Next,-I-made-a-Tree-of-thought-prompt-this-follows-this-pattern:">¶</a></h4><p>You are a highly skilled medical professional tasked with assessing a patient's risk for developing chronic diseases or complications. Your goal is to provide a comprehensive risk assessment by systematically analyzing the patient's information using a structured "tree of thought" process.</p>
+<p>Patient Information:
+[Patient information will be provided here]</p>
+<p>Tree of Thought:</p>
+<ol>
+<li><p>Identify the key factors from the patient's information that are relevant for risk assessment, such as:</p>
+<ul>
+<li>Demographic factors (age, gender, ethnicity, socioeconomic status)</li>
+<li>Genetic factors (SNPs, gene expression)</li>
+<li>Medical history (current conditions, family history, allergies)</li>
+<li>Treatment and clinical data (treatments, outcomes, biomarkers, clinical assessments)</li>
+<li>Lifestyle factors (follow-up, lifestyle habits, medication adherence, patient-reported outcomes)</li>
+</ul>
+</li>
+<li><p>For each identified factor, analyze its potential impact on the patient's risk:</p>
+<ul>
+<li>[Factor 1]: [Analyze the impact of this factor on the patient's risk]</li>
+<li>[Factor 2]: [Analyze the impact of this factor on the patient's risk]</li>
+<li>...</li>
+</ul>
+</li>
+<li><p>Combine the analyses of individual factors to arrive at an overall assessment of the patient's risk level (e.g., high, moderate, low):</p>
+<ul>
+<li>[Summarize the overall risk level based on the combined analyses]</li>
+</ul>
+</li>
+<li><p>Provide recommendations or considerations for managing or mitigating the identified risks:</p>
+<ul>
+<li>[Recommendations or considerations for risk management/mitigation]</li>
+</ul>
+</li>
+</ol>
+<p>Risk Assessment Summary:
+[Provide the final risk assessment summary, including the overall risk level and recommendations, based on the tree of thought]</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=4c5aa25a-3d3f-43e0-b707-7bf47453452d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">openai</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+
+<span class="c1"># Initialize the OpenAI client w/ api key</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s1">'API_KEY_HERE'</span><span class="p">)</span>
+
+<span class="c1"># Add a couple of few-shot examples for risk assessment</span>
+<span class="n">EXAMPLES</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">"Patient ID: 1</span><span class="se">\n</span><span class="s2">Age: 65</span><span class="se">\n</span><span class="s2">Gender: Male</span><span class="se">\n</span><span class="s2">Ethnicity: Caucasian</span><span class="se">\n</span><span class="s2">Socioeconomic Status: High</span><span class="se">\n</span><span class="s2">SNP: rs123456</span><span class="se">\n</span><span class="s2">Gene Expression: 1234</span><span class="se">\n</span><span class="s2">Medical Conditions: Hypertension, Hyperlipidemia</span><span class="se">\n</span><span class="s2">Family Medical History: Cardiovascular disease</span><span class="se">\n</span><span class="s2">Allergies: None</span><span class="se">\n</span><span class="s2">Treatment: Lisinopril, Atorvastatin</span><span class="se">\n</span><span class="s2">Treatment Outcome: Improved</span><span class="se">\n</span><span class="s2">Biomarker: 120</span><span class="se">\n</span><span class="s2">Clinical Assessment: 75</span><span class="se">\n</span><span class="s2">Follow-up: Regular</span><span class="se">\n</span><span class="s2">Lifestyle Factors: Sedentary, Poor diet</span><span class="se">\n</span><span class="s2">Medication Adherence: High</span><span class="se">\n</span><span class="s2">Patient Reported Outcomes: Satisfied"</span><span class="p">,</span>
+     <span class="s2">"Based on the provided information, the patient has a high risk of developing cardiovascular complications due to their age, family history, and existing medical conditions of hypertension and hyperlipidemia. The sedentary lifestyle and poor diet further increase the risk. Regular follow-up and adherence to prescribed medications are crucial for managing the risk."</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"Patient ID: 2</span><span class="se">\n</span><span class="s2">Age: 35</span><span class="se">\n</span><span class="s2">Gender: Female</span><span class="se">\n</span><span class="s2">Ethnicity: Asian</span><span class="se">\n</span><span class="s2">Socioeconomic Status: Middle</span><span class="se">\n</span><span class="s2">SNP: rs789012</span><span class="se">\n</span><span class="s2">Gene Expression: 3456</span><span class="se">\n</span><span class="s2">Medical Conditions: None</span><span class="se">\n</span><span class="s2">Family Medical History: Breast cancer</span><span class="se">\n</span><span class="s2">Allergies: Penicillin</span><span class="se">\n</span><span class="s2">Treatment: None</span><span class="se">\n</span><span class="s2">Treatment Outcome: N/A</span><span class="se">\n</span><span class="s2">Biomarker: 80</span><span class="se">\n</span><span class="s2">Clinical Assessment: 90</span><span class="se">\n</span><span class="s2">Follow-up: Regular</span><span class="se">\n</span><span class="s2">Lifestyle Factors: Active, Healthy diet</span><span class="se">\n</span><span class="s2">Medication Adherence: N/A</span><span class="se">\n</span><span class="s2">Patient Reported Outcomes: Satisfied"</span><span class="p">,</span>
+     <span class="s2">"Based on the provided information, the patient has a moderate risk of developing breast cancer due to their family history. However, their young age, healthy lifestyle, and absence of medical conditions are protective factors. Regular screening and monitoring are recommended, especially given the family history of breast cancer."</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="k">class</span> <span class="nc">ToTPatientRiskAssessment</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_file</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_file</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">preprocess_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">row</span><span class="p">):</span>
+        <span class="n">patient_info</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"Patient ID: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">'PatientID'</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span> \
+                       <span class="sa">f</span><span class="s2">"Age: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">'Age'</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span> \
+                       <span class="sa">f</span><span class="s2">"Gender: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">'Gender'</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span> \
+                       <span class="sa">f</span><span class="s2">"Ethnicity: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">'Ethnicity'</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span> \
+                       <span class="sa">f</span><span class="s2">"Socioeconomic Status: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">'Socioeconomic Status'</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span> \
+                       <span class="sa">f</span><span class="s2">"SNP: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">'SNP'</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span> \
+                       <span class="sa">f</span><span class="s2">"Gene Expression: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">'Gene Expression'</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span> \
+                       <span class="sa">f</span><span class="s2">"Medical Conditions: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">'Medical Conditions'</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span> \
+                       <span class="sa">f</span><span class="s2">"Family Medical History: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">'Family Medical History'</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span> \
+                       <span class="sa">f</span><span class="s2">"Allergies: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">'Allergies'</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span> \
+                       <span class="sa">f</span><span class="s2">"Treatment: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">'Treatment'</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span> \
+                       <span class="sa">f</span><span class="s2">"Treatment Outcome: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">'Treatment Outcome'</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span> \
+                       <span class="sa">f</span><span class="s2">"Biomarker: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">'Biomarker'</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span> \
+                       <span class="sa">f</span><span class="s2">"Clinical Assessment: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">'Clinical Assessment'</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span> \
+                       <span class="sa">f</span><span class="s2">"Follow-up: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">'Follow-up'</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span> \
+                       <span class="sa">f</span><span class="s2">"Lifestyle Factors: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">'Lifestyle Factors'</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span> \
+                       <span class="sa">f</span><span class="s2">"Medication Adherence: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">'Medication Adherence'</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span> \
+                       <span class="sa">f</span><span class="s2">"Patient Reported Outcomes: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">'Patient Reported Outcomes'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
+        <span class="k">return</span> <span class="n">patient_info</span>
+
+    <span class="k">def</span> <span class="nf">assess_risk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">patient_info</span><span class="p">):</span>
+        <span class="c1">## This is where I add in the ToT analysis</span>
+        <span class="n">prompt</span> <span class="o">=</span> <span class="s2">"</span><span class="se">\n\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s2">"Patient Information: </span><span class="si">{</span><span class="n">ex</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">Risk Assessment: </span><span class="si">{</span><span class="n">ex</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">ex</span> <span class="ow">in</span> <span class="n">EXAMPLES</span><span class="p">])</span> <span class="o">+</span> \
+                 <span class="s2">"</span><span class="se">\n\n</span><span class="s2">You are a highly skilled medical professional tasked with assessing a patient's risk for developing chronic diseases or complications. Your goal is to provide a comprehensive risk assessment by systematically analyzing the patient's information using a structured </span><span class="se">\"</span><span class="s2">tree of thought</span><span class="se">\"</span><span class="s2"> process.</span><span class="se">\n\n</span><span class="s2">Patient Information:</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="n">patient_info</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n\n</span><span class="s2">Tree of Thought:</span><span class="se">\n</span><span class="s2">1. Identify the key factors from the patient's information that are relevant for risk assessment, such as:</span><span class="se">\n</span><span class="s2">    - Demographic factors (age, gender, ethnicity, socioeconomic status)</span><span class="se">\n</span><span class="s2">    - Genetic factors (SNPs, gene expression)</span><span class="se">\n</span><span class="s2">    - Medical history (current conditions, family history, allergies)</span><span class="se">\n</span><span class="s2">    - Treatment and clinical data (treatments, outcomes, biomarkers, clinical assessments)</span><span class="se">\n</span><span class="s2">    - Lifestyle factors (follow-up, lifestyle habits, medication adherence, patient-reported outcomes)</span><span class="se">\n\n</span><span class="s2">2. For each identified factor, analyze its potential impact on the patient's risk:</span><span class="se">\n</span><span class="s2">    - [Factor 1]: [Analyze the impact of this factor on the patient's risk]</span><span class="se">\n</span><span class="s2">    - [Factor 2]: [Analyze the impact of this factor on the patient's risk]</span><span class="se">\n</span><span class="s2">    - ...</span><span class="se">\n\n</span><span class="s2">3. Combine the analyses of individual factors to arrive at an overall assessment of the patient's risk level (e.g., high, moderate, low):</span><span class="se">\n</span><span class="s2">    - [Summarize the overall risk level based on the combined analyses]</span><span class="se">\n\n</span><span class="s2">4. Provide recommendations or considerations for managing or mitigating the identified risks:</span><span class="se">\n</span><span class="s2">    - [Recommendations or considerations for risk management/mitigation]</span><span class="se">\n\n</span><span class="s2">Risk Assessment Summary:"</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">chat_completion</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+                <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+                    <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"system"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="n">prompt</span><span class="p">}</span>
+                <span class="p">],</span>
+                <span class="n">model</span><span class="o">=</span><span class="s2">"gpt-3.5-turbo"</span><span class="p">,</span>
+                <span class="n">max_tokens</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="c1"># upped limit to handle larger prompt</span>
+                <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                <span class="n">stop</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">temperature</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">risk_assessment_summary</span> <span class="o">=</span> <span class="n">chat_completion</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"OpenAI API error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="n">risk_assessment_summary</span> <span class="o">=</span> <span class="s2">"Unable to assess risk due to an error."</span>
+        <span class="k">return</span> <span class="n">risk_assessment_summary</span>
+
+    <span class="k">def</span> <span class="nf">process_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+            <span class="c1"># get the second example for some variety in what data we are looking at</span>
+            <span class="k">if</span> <span class="n">index</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">patient_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">preprocess_data</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+            <span class="n">risk_assessment_summary</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">assess_risk</span><span class="p">(</span><span class="n">patient_info</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Patient ID: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">'PatientID'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">risk_assessment_summary</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+            <span class="k">break</span>  <span class="c1"># Comment the break to run the risk assessment for the entire dataset</span>
+    
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">data_file</span> <span class="o">=</span> <span class="s2">"patient_data.csv"</span>
+    <span class="n">risk_assessment</span> <span class="o">=</span> <span class="n">ToTPatientRiskAssessment</span><span class="p">(</span><span class="n">data_file</span><span class="p">)</span>
+    <span class="n">risk_assessment</span><span class="o">.</span><span class="n">process_data</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Patient ID: 850780
+Tree of Thought:
+
+1. Demographic factors:
+- Age (58): Advanced age is a risk factor for chronic diseases and complications.
+- Gender (Female): Gender may influence the risk of certain conditions.
+- Ethnicity (Pacific Islander): Ethnicity can impact the risk of certain diseases.
+- Socioeconomic Status (Low): Lower socioeconomic status can be associated with increased health risks.
+
+2. Genetic factors:
+- SNP (rs984085): Genetic variations can predispose individuals to certain conditions.
+- Gene Expression (2810): Gene expression levels can indicate disease susceptibility.
+
+3. Medical history:
+- Medical Conditions (COPD, Arthritis): Existing chronic conditions can increase the risk of complications.
+- Family Medical History (Diabetes): Family history of diabetes can increase the risk of developing the condition.
+- Allergies (Sulfa drugs): Allergies can affect treatment options and outcomes.
+
+4. Treatment and clinical data:
+- Treatment (Metformin): Treatment with Metformin indicates management of diabetes.
+- Treatment Outcome (Improved): Improved treatment outcomes suggest effective management.
+- Biomarker (217): Biomarker levels can indicate disease progression or risk.
+- Clinical Assessment (96): High clinical assessment score indicates good overall health.
+
+5. Lifestyle factors:
+- Follow-up (Irregular): Irregular follow-up may impact disease management and early intervention.
+- Lifestyle Habits (Active, Healthy diet): Positive lifestyle habits can mitigate risk factors.
+- Medication Adherence (High): High adherence to medications is crucial for disease management.
+- Patient Reported Outcomes (Satisfied): Patient satisfaction can reflect overall well-being.
+
+Risk Assessment Summary:
+Based on the analysis of the key factors, the patient's overall risk level is moderate. While the patient has some protective factors such as active lifestyle, healthy diet, high medication adherence, and improved treatment outcomes, the presence of chronic conditions, family history of diabetes, irregular follow-up, and lower socioeconomic status contribute to an increased risk profile.
+
+Recommendations for managing the identified risks:
+1. Encourage regular follow-up appointments to monitor existing conditions and address any potential complications.
+2. Emphasize the importance of maintaining an active lifestyle and healthy diet to support overall health and reduce disease risk.
+3. Monitor biomarker levels and clinical assessments closely to detect any changes or early signs of complications.
+4. Consider genetic counseling or testing to assess additional genetic risk factors.
+5. Address any barriers to healthcare access related to the patient's lower socioeconomic status to ensure comprehensive care.
+
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5acdb847-cd40-45a4-8aad-bc56276dcafe">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Now,-utilizing-Tree-of-thought-analysis-for-each-factor,-the-output-provides-an-analysis-of-its-potential-impact-on-the-patient's-risk.-For-example,-it-highlights-that-advanced-age,-lower-socioeconomic-status,-existing-chronic-conditions,-and-irregular-follow-up-can-contribute-to-increased-health-risks.">Now, utilizing Tree-of-thought analysis for each factor, the output provides an analysis of its potential impact on the patient's risk. For example, it highlights that advanced age, lower socioeconomic status, existing chronic conditions, and irregular follow-up can contribute to increased health risks.<a class="anchor-link" href="#Now,-utilizing-Tree-of-thought-analysis-for-each-factor,-the-output-provides-an-analysis-of-its-potential-impact-on-the-patient's-risk.-For-example,-it-highlights-that-advanced-age,-lower-socioeconomic-status,-existing-chronic-conditions,-and-irregular-follow-up-can-contribute-to-increased-health-risks.">¶</a></h4>
+</div>
+</div>
+</div>
+</div>
 </main>
 </body>
 </html>
