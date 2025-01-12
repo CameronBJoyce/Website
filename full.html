@@ -1,93 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        
-        <!-- Website Title -->
-        <title>Cameron Joyce</title>
-        <!-- Bootstrap -->
-        <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-            <!-- Font-Awesome -->
-            <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-                <!-- Lightbox -->
-                <link href="assets/lightbox/css/lightbox.css" rel="stylesheet">
-                    <!-- Text Rotator-->
-                    <link href="assets/textrotator/simpletextrotator.css" rel="stylesheet">
-                        <!-- FlexSlider -->
-                        <link href="assets/flexslider/flexslider.css" rel="stylesheet">
-                            <!-- Theme Style -->
-                            <link href="css/style.css" rel="stylesheet">
-                                <!-- Animations -->
-                                <link href="css/animate.css" rel="stylesheet">
-                                    <!-- Custom Favicon -->
-                                    <script src="https://kit.fontawesome.com/d07efdc8a4.js" crossorigin="anonymous"></script>
-                                    <meta property="og:image" content="img/thumbnail.png">
-                                        <meta property="og:image:type" content="image/png">
-                                            <meta property="og:image:width" content="1024">
-                                                <meta property="og:image:height" content="1024">
-                                                    <link href="img/neural.ico" rel="shortcut icon" type="image/x-icon" />
-                                                </head>
-    <body id="top">
-        
-        <!-- ****************************** Preloader ************************** -->
-        <div id="preloader"></div>
-        <!-- ==========================
-        HEADER SECTION
-        =========================== -->
-        <header id="home">
-            <!-- creative menu -->
-            <div class="container-fluid">
+<head>
+    <meta charset="UTF-8">
+    <title>Cameron Joyce</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/lightbox/css/lightbox.css">
+    <link rel="stylesheet" href="assets/textrotator/simpletextrotator.css">
+    <link rel="stylesheet" href="assets/flexslider/flexslider.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <script src="https://kit.fontawesome.com/d07efdc8a4.js" crossorigin="anonymous"></script>
+    <meta property="og:image" content="img/thumbnail.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="1024">
+    <link href="img/neural.ico" rel="shortcut icon" type="image/x-icon">
+</head>
+<body id="top">
+    <div id="preloader"></div>
+</body>
+</html>
+
+    <!-- ==========================
+    HEADER SECTION
+    =========================== -->
+    <header id="home">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="menu-wrap">
+                    <nav class="menu">
+                        <div class="icon-list">
+                            <a href="full.html#home"><i class="fa fa-fw fa-home"></i><span>Home</span></a>
+                            <a href="full.html#about"><i class="fa fa-fw fa-quote-left"></i><span>About</span></a>
+                            <a href="full.html#service"><i class="fa fa-fw fa-hammer"></i><span>What I Do</span></a>
+                            <a href="full.html#portfolio"><i class="fa fa-fw fa-picture-o"></i><span>Portfolio</span></a>
+                        </div>
+                    </nav>
+                </div>
+                <button class="menu-button" id="open-button"></button>
+            </div>
+        </div>
+
+        <section class="hero" id="hero">
+            <div class="container">
                 <div class="row">
-                    <div class="menu-wrap">
-                        <nav class="menu">
-                            <!-- Menu Links -->
-                            <div class="icon-list">
-                                <a href="full.html#home"><i class="fa fa-fw fa-home"></i><span>Home</span></a>
-                                <a href="full.html#about"><i class="fa fa-fw fa-quote-left"></i><span>About</span></a>
-                                <a href="full.html#service"><i class="fa fa-fw fa-hammer"></i><span>What I Do</span></a>
-                                <a href="full.html#portfolio"><i class="fa fa-fw fa-picture-o"></i><span>Portfolio</span></a>
-                                <!--<a href="full.html#blog"><i class="fa fa-fw fa-rss"></i><span>Blog</span></a>-->
-                                <a href="full.html#contact"><i class="fa fa-fw fa-envelope-o"></i><span>Contact</span></a>
-                            </div>
-                        </nav>
-                    </div>
-                    <button class="menu-button" id="open-button"></button><!-- menu button -->
-                </div><!--/row-->
-            </div><!--/container-->
-            <!-- Header Image -->
-            <section class="hero" id="hero">
-                <div class="container">
-                    <!-- Slider Button-->
-                    <div class="row">
-                        <div class="col-md-12 text-right navicon">
-                            <a id="nav-toggle" class="nav_slide_button" href="full.html#"><span></span></a>
-                        </div>
-                    </div>
-                    <!-- HEADER HEADLINE -->
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-1 inner">
-                            <h1 class="animated fadeInDown" style="font-family: Optima !important; font-size: 120px; color:black;">
-                                Cameron<br/>Bennett<br/>Joyce
-                            </h1><!-- Title -->
-                            <!--<h3 class="animated fadeInUp delay-05s" style="font-size: 20px;"><span id="changer"></span></h3>Text Rotator -->
-                            <h2 class="animated fadeInDown" style="font-size: 30px; font-family: Optima !important;color:white !important;">Data & Defense</h2>
-                        </div>
-                    </div>
-                    <!-- Learn More Button -->
-                    <div class="row">
-                        <div class="col-md-6 col-md-offset-3 text-center">
-                            <a href="full.html#about" class="scrollto wow fadeInUp delay-5s ">
-                                <p>SEE MORE</p>
-                                <p class="scrollto--arrow"><img src="img/scroll-down.png" alt="scroll down arrow"></p>
-                            </a>
-                        </div>
+                    <div class="col-md-12 text-right navicon">
+                        <a id="nav-toggle" class="nav_slide_button" href="full.html#"><span></span></a>
                     </div>
                 </div>
-            </section>
-            <!-- Header Image End -->
-        </header>
-        <!-- ==========================
-        HEADER SECTION END
-        =========================== -->
+
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-1 inner">
+                        <h1 class="animated fadeInDown" style="font-family: Optima; font-size: 120px; color: black;">
+                            Cameron<br/>Bennett<br/>Joyce
+                        </h1>
+                        <h2 class="animated fadeInDown" style="font-size: 30px; font-family: Optima; color: white !important;">
+                            Data & Analytics
+                        </h2>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3 text-center">
+                        <a href="full.html#about" class="scrollto wow fadeInUp delay-5s">
+                            <p>SEE MORE</p>
+                            <p class="scrollto--arrow"><img src="img/scroll-down.png" alt="scroll down arrow"></p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </header>
+    <!-- ==========================
+    HEADER SECTION END
+    =========================== -->
         
         <!-- ==========================
         ABOUT SECTION
@@ -99,9 +86,9 @@
                     <div class="col-md-8 col-md-offset-2 wp1">
                         <h1 class="arrow">About <span>Me</span></h1><!-- Headline -->
                         <!-- about / welcome text -->
-                        <p class="animated fadeInDown" style="font-size: 20px; font-family: Optima !important;"> I am a consultant that loves <i>every</i> aspect of working with data.</br>I have experience building NLP products, data pipelines, machine learning systems, and implementing best data practices with the U.S. Department of Defense in both the public and private sector. Although Data Science and NLP are my main interests, I still find time to do other things that I am really passionate about. Working with kids and peers who stutter, economics research, mountain biking, mindfulness, and reading are all ways that I fill my days. I have degrees in Computer Science and Economics from Wofford College where I graduated from in 2022. I am currently enrolled in UT Austin's Master's in Artificial Intelligence. Keep scrolling to learn more about me.
+                        <p class="animated fadeInDown" style="font-size: 20px; font-family: Optima !important;"> I am an analyst that loves <i>every</i> aspect of working with data.</br>I have experience building NLP products, data pipelines, machine learning systems, and implementing best data practices with the financial sector, U.S. Department of Defense in both the public and private sector. Although Data Science and NLP are my main interests, I still find time to do other things that I am really passionate about. Working with kids and peers who stutter, economics research, mountain biking, mindfulness, and reading are all ways that I fill my days. I have degrees in Computer Science and Economics from Wofford College where I graduated from in 2022. I am currently enrolled in UT Austin's Master's in Artificial Intelligence. Keep scrolling to learn more about me.
                         </p>
-                        <h2 class="arrow"> <a href="img/res_pub.pdf" target= "_blank">Curriculum Vitae</a></h2>
+                        <!-- <h2 class="arrow"> <a href="img/res_pub.pdf" target= "_blank">Curriculum Vitae</a></h2>-->
                         <a href="https://github.com/CameronBJoyce/" target= "_blank"><i class="fa fa-github" style="font-size:36px"></i>
                         </br>
                         <a href = "q.html" target= "_blank">Quotes I Like</a>
@@ -149,7 +136,7 @@
                                     <i class="fa fa-th"></i><!-- Icon -->
                                 </div>
                                 <h2 style="color:black; font-family:Optima">Research</h2><!-- Title -->
-                                <p style="color:black; font-family:Optima">My research centers around solving information asymmetries with specific emphasis on solving issues related to adverse selection, principal-agent problems, moral hazard, and signaling. Additionally, I performed original economic research in same-sex married couples demographics, Friedrich Hayek and ledger technology, and information asymmetry solutions. My current research is "Addressing Principal-Agent Problems in Public Policy Implementation: An Analysis of Regulatory Compliance and Enforcement Mechanisms." </br> <a href="https://www.researchgate.net/profile/Cameron-Joyce" target="_blank">Research Profile</a></p><!-- Description -->
+                                <p style="color:black; font-family:Optima">My research centers around solving information asymmetries with specific emphasis on solving issues related to adverse selection, principal-agent problems, moral hazard, and signaling. Additionally, I performed original economic research in same-sex married couples demographics, Friedrich Hayek and ledger technology, and information asymmetry solutions. My current research is "Addressing Principal-Agent Problems in Public Policy Implementation: An Analysis of Regulatory Compliance and Enforcement Mechanisms."</p><!-- Description -->
                             </div>
                         </div>
                         <div class="clearfix"></div>
@@ -167,7 +154,7 @@
                     <div class="col-md-12">
                         <div class="services">
                             <!-- Hobby Box 1 -->
-                            <div class="col-md-3 wp2 item delay-05s">
+                            <div class="col-md-3 wp2 item delay-0.5s">
                                 <div class="icon">
                                     <i class="fa fa-bicycle"></i><!-- Icon -->
                                 </div>
@@ -181,20 +168,21 @@
                                 <h2 style="color:black; font-family:Optima">Chess</h2><!-- Title -->
                             </div>
                             <!-- Hobby Box 3 -->
-                            <div class="col-md-3 wp2 item delay-1s">
-                                <div class="icon">
-                                    <i class="fa fa-apple"></i><!-- Icon -->
-                                </div>
-                                <h2 style="color:black; font-family:Optima">HomeKit Engineering</h2><!-- Title -->
-                            </div>
-                            <!-- Hobby Box 4 -->
-                            <div class="col-md-3 wp2 item">
+                            <div class="col-md-3 wp2 item delay-1.5s">
                                 <div class="icon">
                                     <i class="fa fa-align-left"></i><!-- Icon -->
                                 </div>
                                 <h2 style="color:black; font-family:Optima">Ceramics</h2><!-- Title -->
                             </div>
-                        </div>
+                            <!-- Hobby Box 4 -->
+                            <div class="col-md-3 wp2 item delay-2s">
+                                <div class="icon">
+                                    <i class="fa fa-film"></i><!-- Icon -->
+                                </div>
+                                <h2 style="color:black; font-family:Optima">Documentary-Watching</h2><!-- Title -->
+                                <h3 style="color:gray; font-family:Optima; font-size:smaller;">I will watch one on literally anything</h3><!-- Subheader -->
+                            </div>
+                        </div> 
                         <div class="clearfix"></div>
                     </div>
                 </div>
@@ -495,44 +483,6 @@
             ==========================
             CUSTOM SPACER END
             =========================== -->
-            
-            
-            
-            
-            <!-- ==========================
-            CONTACT SECTION
-            =========================== -->
-            <section class="text-center section-padding contact-wrap" id="contact">
-                <!-- To Top Button -->
-                <a href="full.html#top" class="up-btn"><i class="fa fa-chevron-up"></i></a>
-                <div class="container">
-                    <!-- Headline -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h1 class="arrow"><span style="color:#DCDCDC !important">Drop me a line</span></h1>
-                        </div>
-                    </div>
-                    <div class="row contact-details">
-                        <!-- Adress Box -->
-                        <div class="col-md-4">
-                            <div class="dark-box box-hover">
-                                <h2><i class="fa fa-map-marker"></i><span>Address</span></h2>
-                                <p>Reston, VA</p>
-                            </div>
-                        </div>
-                        
-                        <!-- E-Mail Box -->
-                        <div class="col-md-8">
-                            <div class="dark-box box-hover">
-                                <h2><i class="fa fa-paper-plane"></i><span>Email</span></h2>
-                                <p><a href="full.html#">bennett1423@gmail.com</a></p>
-                            </div>
-                        </div>
-                    </section>
-            <!-- ==========================
-            CONTACT SECTION END
-            =========================== -->
-            
             
             
             
