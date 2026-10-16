@@ -2,473 +2,418 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cameron Joyce</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/lightbox/css/lightbox.css">
-    <link rel="stylesheet" href="assets/textrotator/simpletextrotator.css">
-    <link rel="stylesheet" href="assets/flexslider/flexslider.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <script src="https://kit.fontawesome.com/d07efdc8a4.js" crossorigin="anonymous"></script>
-    <meta property="og:image" content="img/thumbnail.png">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="1024">
-    <meta property="og:image:height" content="1024">
+    <meta name="description"
+        content="Personal website of Cameron Bennett Joyce: Data &amp; Analytics, AI systems, and the bookshelf.">
+    <title>Cameron Bennett Joyce &mdash; Full Site</title>
+    <link rel="stylesheet" href="css/writings.css">
     <link href="img/b.ico" rel="shortcut icon" type="image/x-icon">
+
+    <style>
+        .site-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.75em 1.5em;
+            margin-bottom: 2em;
+            font-family: valkyrie_c4, Georgia, serif;
+            font-size: 0.95em;
+        }
+
+        .site-nav .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5em 0.85em;
+        }
+
+        .lede {
+            font-style: italic;
+            color: #666;
+            margin-top: -0.4em;
+            font-size: 1.05em;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .lede {
+                color: #aaa;
+            }
+        }
+
+        .meta-line {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75em;
+            margin-top: 1.25em;
+            font-size: 0.95em;
+        }
+
+        .discipline-block {
+            margin-bottom: 1.75em;
+        }
+
+        .discipline-block h3 {
+            margin-bottom: 0.25em;
+        }
+
+        .pursuits-list {
+            padding-left: 1.25em;
+        }
+
+        .pursuits-list li {
+            margin-bottom: 0.6em;
+        }
+
+        .shelf-intro {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1.5em;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .shelf-intro {
+                color: #aaa;
+            }
+        }
+
+        .bookshelf-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(115px, 1fr));
+            gap: 1.75rem 1.15rem;
+            margin: 1.75em 0 2.5em 0;
+        }
+
+        .book-card {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s ease, filter 0.2s ease;
+        }
+
+        .book-card:hover {
+            transform: translateY(-4px);
+            text-decoration: none;
+        }
+
+        .book-card:hover .book-title {
+            text-decoration: underline;
+        }
+
+        .book-cover {
+            width: 100%;
+            aspect-ratio: 2 / 3;
+            object-fit: cover;
+            border-radius: 2px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.1);
+            background-color: rgba(0, 0, 0, 0.05);
+            display: block;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .book-cover {
+                box-shadow: 0 4px 14px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.12);
+            }
+        }
+
+        .book-title {
+            font-family: valkyrie_c4, Georgia, serif;
+            font-size: 0.88em;
+            line-height: 1.2;
+            color: currentColor;
+            margin-top: 0.45em;
+        }
+
+        .book-author {
+            font-size: 0.78em;
+            color: #666;
+            font-style: italic;
+            margin-top: 0.2em;
+            line-height: 1.25;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .book-author {
+                color: #aaa;
+            }
+        }
+
+        .directory-list {
+            padding-left: 1.25em;
+        }
+
+        .directory-list li {
+            margin-bottom: 0.5em;
+        }
+
+        footer {
+            margin-top: 3em;
+            padding-top: 1.5em;
+            border-top: 1px solid currentColor;
+            opacity: 0.75;
+            font-size: 0.85em;
+            line-height: 1.4;
+            text-align: left;
+        }
+    </style>
 </head>
 
-<body id="top">
-    <div id="preloader"></div>
+<body id="home">
+    <nav class="site-nav">
+        <a href="index.html">&larr; Bennett Joyce</a>
+        <span class="nav-links">
+            <a href="#about">About</a> &middot;
+            <a href="#pursuits">Pastimes</a> &middot;
+            <a href="#bookshelf">Bookshelf</a> &middot;
+            <a href="w.html">Writings</a>
+        </span>
+    </nav>
 
-    <!-- ==========================
-    HEADER SECTION
-    =========================== -->
-    <header id="home">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="menu-wrap">
-                    <nav class="menu">
-                        <div class="icon-list">
-                            <a href="#home"><i class="fa fa-fw fa-home"></i><span>Home</span></a>
-                            <a href="#about"><i class="fa fa-fw fa-quote-left"></i><span>About</span></a>
-                            <a href="#service"><i class="fa fa-fw fa-hammer"></i><span>What I Do</span></a>
-                            <a href="#portfolio"><i class="fa fa-fw fa-picture-o"></i><span>Portfolio</span></a>
-                        </div>
-                    </nav>
-                </div>
-                <button class="menu-button" id="open-button"></button>
-            </div>
-        </div>
-
-        <section class="hero" id="hero">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-right navicon">
-                        <a id="nav-toggle" class="nav_slide_button" href="#"><span></span></a>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-1 inner">
-                        <h1 class="animated fadeInDown hero-title">
-                            Cameron<br />Bennett<br />Joyce
-                        </h1>
-                        <h2 class="animated fadeInDown hero-subtitle">
-                            Data & Analytics
-                        </h2>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-3 text-center">
-                        <a href="#about" class="scrollto wow fadeInUp delay-5s">
-                            <p>SEE MORE</p>
-                            <p class="scrollto--arrow"><img src="img/scroll-down.png" alt="scroll down arrow"></p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <header>
+        <h1>Bennett Joyce</h1>
     </header>
 
-    <main>
+    <hr>
+
+    <main id="content">
         <!-- ==========================
         ABOUT SECTION
         =========================== -->
-        <section class="intro text-center section-padding color-bg" id="about">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2 wp1">
-                        <h1 class="arrow">About <span>Me</span></h1>
-                        <p class="animated fadeInDown section-head-text">
-                            I am an analyst that loves <i>every</i> aspect of working with data.<br>I have experience
-                            building NLP products, data pipelines, machine learning systems, and implementing best data
-                            practices with the financial sector, U.S. Department of Defense in both the public and
-                            private sector. Although Data Science and NLP are my main interests, I still find time to do
-                            other things that I am really passionate about. Working with kids and peers who stutter,
-                            economics research, mountain biking, mindfulness, and reading are all ways that I fill my
-                            days. I have degrees in Computer Science and Economics from Wofford College where I
-                            graduated from in 2022. I am currently enrolled in UT Austin's Master's in Artificial
-                            Intelligence. Keep scrolling to learn more about me.
-                        </p>
-                        <a href="https://github.com/CameronBJoyce/" target="_blank"><i class="fa fa-github"
-                                style="font-size:36px"></i></a>
-                        <br>
-                        <a href="q.html" target="_blank">Quotes I Like</a>
-                    </div>
-                </div>
+        <section id="about">
+            <h2>About</h2>
+            <p>
+                I am an analyst that loves <i>every</i> aspect of working with data. I have experience
+                building NLP products, data pipelines, and machine learning systems across the financial
+                sector and the U.S. Department of Defense. Outside of data science, I spend time working
+                with kids and peers who stutter, researching economics, mountain biking, and reading.
+                I graduated from UT Austin with a Master's in Artificial Intelligence and hold degrees in
+                Computer Science and Economics from Wofford College.
+            </p>
+            <p class="meta-line">
+                <a href="https://github.com/CameronBJoyce/" target="_blank" rel="noopener">GitHub</a> &middot;
+                <a href="q.html">Quotes I Like</a> &middot;
+                <a href="w.html">Writing Repo</a> &middot;
+                <a href="https://www.nber.org/system/files/working_papers/w22404/w22404.pdf" target="_blank"
+                    rel="noopener">Current Research Interest</a>
+            </p>
+        </section>
+<hr>
+
+        <!-- ==========================
+        PASTIMES & PURSUITS
+        =========================== -->
+        <section id="pursuits">
+            <h2>Pastimes</h2>
+            <ul class="pursuits-list">
+                <li><strong>Mountain Biking</strong></li>
+                <li><strong>Chess</strong></li>
+                <li><strong>Ceramics</strong></li>
+                <li><strong>Documentary-Watching</strong> &mdash; <i> I will watch one on literally anything.</i></li>
+                <li><strong>Stuttering Community</strong></li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <!-- ==========================
+        THE BOOKSHELF
+        =========================== -->
+        <section id="bookshelf">
+            <h2>The Bookshelf</h2>
+            <p class="shelf-intro">
+                Books I like.
+            </p>
+
+            <div class="bookshelf-grid">
+                <!-- Outliers -->
+                <a href="https://www.amazon.com/Outliers-Story-Success-Malcolm-Gladwell/dp/0316017930"
+                    target="_blank" rel="noopener" class="book-card">
+                    <img class="book-cover" src="img/BookCovers/Outliers.jpg" alt="Outliers by Malcolm Gladwell"
+                        loading="lazy">
+                    <span class="book-title">Outliers</span>
+                    <span class="book-author">Malcolm Gladwell</span>
+                </a>
+
+                <!-- Hero with a Thousand Faces -->
+                <a href="https://www.amazon.com/Thousand-Faces-Collected-Joseph-Campbell/dp/1577315936"
+                    target="_blank" rel="noopener" class="book-card">
+                    <img class="book-cover" src="img/BookCovers/HTF.jpg"
+                        alt="The Hero with a Thousand Faces by Joseph Campbell" loading="lazy">
+                    <span class="book-title">The Hero with a Thousand Faces</span>
+                    <span class="book-author">Joseph Campbell</span>
+                </a>
+
+                <!-- Picture of Dorian Gray -->
+                <a href="https://www.amazon.com/Picture-Dorian-Gray-Oscar-Wilde/dp/1512395463"
+                    target="_blank" rel="noopener" class="book-card">
+                    <img class="book-cover" src="img/BookCovers/PoDG.jpg"
+                        alt="The Picture of Dorian Gray by Oscar Wilde" loading="lazy">
+                    <span class="book-title">The Picture of Dorian Gray</span>
+                    <span class="book-author">Oscar Wilde</span>
+                </a>
+
+                <!-- The Road to Character -->
+                <a href="https://www.amazon.com/The-Road-to-Character/dp/B00V3WMYN0" target="_blank"
+                    rel="noopener" class="book-card">
+                    <img class="book-cover" src="img/BookCovers/Road.jpg"
+                        alt="The Road to Character by David Brooks" loading="lazy">
+                    <span class="book-title">The Road to Character</span>
+                    <span class="book-author">David Brooks</span>
+                </a>
+
+                <!-- On Grand Strategy -->
+                <a href="https://www.amazon.com/Grand-Strategy-John-Lewis-Gaddis/dp/1594203512"
+                    target="_blank" rel="noopener" class="book-card">
+                    <img class="book-cover" src="img/BookCovers/GrandStrategy.jpg"
+                        alt="On Grand Strategy by John Lewis Gaddis" loading="lazy">
+                    <span class="book-title">On Grand Strategy</span>
+                    <span class="book-author">John Lewis Gaddis</span>
+                </a>
+
+                <!-- Factfulness -->
+                <a href="https://www.amazon.com/Factfulness-Reasons-World-Things-Better/dp/1250107814"
+                    target="_blank" rel="noopener" class="book-card">
+                    <img class="book-cover" src="img/BookCovers/Factfulness.jpg" alt="Factfulness by Hans Rosling"
+                        loading="lazy">
+                    <span class="book-title">Factfulness</span>
+                    <span class="book-author">Hans Rosling</span>
+                </a>
+
+                <!-- Prisoners of Geography -->
+                <a href="https://www.amazon.com/Prisoners-Geography-Explain-Everything-About/dp/B01M9F16BF"
+                    target="_blank" rel="noopener" class="book-card">
+                    <img class="book-cover" src="img/BookCovers/Geography.jpg"
+                        alt="Prisoners of Geography by Tim Marshall" loading="lazy">
+                    <span class="book-title">Prisoners of Geography</span>
+                    <span class="book-author">Tim Marshall</span>
+                </a>
+
+                <!-- The Brothers Karamazov -->
+                <a href="https://www.amazon.com/Brothers-Karamazov-Modern-Library/dp/0679601813"
+                    target="_blank" rel="noopener" class="book-card">
+                    <img class="book-cover" src="img/BookCovers/Brothers.jpg"
+                        alt="The Brothers Karamazov by Fyodor Dostoevsky" loading="lazy">
+                    <span class="book-title">The Brothers Karamazov</span>
+                    <span class="book-author">Fyodor Dostoevsky</span>
+                </a>
+
+                <!-- The Hobbit -->
+                <a href="https://www.amazon.com/Hobbit-There-Back-Again/dp/061815082X" target="_blank"
+                    rel="noopener" class="book-card">
+                    <img class="book-cover" src="img/BookCovers/Hobbit.jpg" alt="The Hobbit by J.R.R. Tolkien"
+                        loading="lazy">
+                    <span class="book-title">The Hobbit</span>
+                    <span class="book-author">J.R.R. Tolkien</span>
+                </a>
+
+                <!-- Tales on the Town -->
+                <a href="https://www.amazon.com/Tales-Town-Bennett-Joyce/dp/1483485331" target="_blank"
+                    rel="noopener" class="book-card">
+                    <img class="book-cover" src="img/BookCovers/Tales.jpg"
+                        alt="Tales on the Town by Bennett Joyce" loading="lazy">
+                    <span class="book-title">Tales on the Town</span>
+                    <span class="book-author">Bennett Joyce</span>
+                </a>
+
+                <!-- Brave New World -->
+                <a href="https://www.amazon.com/Brave-New-World-Aldous-Huxley/dp/0060850523" target="_blank"
+                    rel="noopener" class="book-card">
+                    <img class="book-cover" src="img/BookCovers/BraveNewWorld.jpg"
+                        alt="Brave New World by Aldous Huxley" loading="lazy">
+                    <span class="book-title">Brave New World</span>
+                    <span class="book-author">Aldous Huxley</span>
+                </a>
+
+                <!-- Mr. Penumbra's 24-Hour Bookstore -->
+                <a href="https://www.amazon.com/Mr-Penumbras-24-Hour-Bookstore-Novel/dp/1250037751"
+                    target="_blank" rel="noopener" class="book-card">
+                    <img class="book-cover" src="img/BookCovers/Penumbras.jpg"
+                        alt="Mr. Penumbra's 24-Hour Bookstore by Robin Sloan" loading="lazy">
+                    <span class="book-title">Mr. Penumbra's 24-Hour Bookstore</span>
+                    <span class="book-author">Robin Sloan</span>
+                </a>
+
+                <!-- The Lost Art of Scripture -->
+                <a href="https://www.amazon.com/Lost-Art-Scripture-Rescuing-Sacred/dp/0525656122"
+                    target="_blank" rel="noopener" class="book-card">
+                    <img class="book-cover" src="img/BookCovers/LostArt.jpg"
+                        alt="The Lost Art of Scripture by Karen Armstrong" loading="lazy">
+                    <span class="book-title">The Lost Art of Scripture</span>
+                    <span class="book-author">Karen Armstrong</span>
+                </a>
+
+                <!-- The Wisdom of Finance -->
+                <a href="https://www.amazon.com/Wisdom-Finance-Discovering-Humanity-Return/dp/054491113X"
+                    target="_blank" rel="noopener" class="book-card">
+                    <img class="book-cover" src="img/BookCovers/WOF.jpg"
+                        alt="The Wisdom of Finance by Mihir Desai" loading="lazy">
+                    <span class="book-title">The Wisdom of Finance</span>
+                    <span class="book-author">Mihir Desai</span>
+                </a>
+
+                <!-- Algorithms to Live By -->
+                <a href="https://www.amazon.com/Algorithms-Live-Computer-Science-Decisions/dp/1627790365"
+                    target="_blank" rel="noopener" class="book-card">
+                    <img class="book-cover" src="img/BookCovers/Algorithms.jpg"
+                        alt="Algorithms to Live By by Brian Christian" loading="lazy">
+                    <span class="book-title">Algorithms to Live By</span>
+                    <span class="book-author">Brian Christian</span>
+                </a>
+
+                <!-- You Are What You Love -->
+                <a href="https://www.amazon.com/You-Are-What-Love-Spiritual/dp/158743380X" target="_blank"
+                    rel="noopener" class="book-card">
+                    <img class="book-cover" src="img/BookCovers/YouLove.jpg"
+                        alt="You Are What You Love by James K.A. Smith" loading="lazy">
+                    <span class="book-title">You Are What You Love</span>
+                    <span class="book-author">James K.A. Smith</span>
+                </a>
+
+                <!-- The Denial of Death -->
+                <a href="https://www.amazon.com/Denial-Death-Ernest-Becker/dp/0684832402" target="_blank"
+                    rel="noopener" class="book-card">
+                    <img class="book-cover" src="img/BookCovers/Denial.jpg"
+                        alt="The Denial of Death by Ernest Becker" loading="lazy">
+                    <span class="book-title">The Denial of Death</span>
+                    <span class="book-author">Ernest Becker</span>
+                </a>
+
+                <!-- Eat This Book -->
+                <a href="https://www.amazon.com/Eat-This-Book-Conversation-Spiritual/dp/0802864902"
+                    target="_blank" rel="noopener" class="book-card">
+                    <img class="book-cover" src="img/BookCovers/Eat.jpg" alt="Eat This Book by Eugene Peterson"
+                        loading="lazy">
+                    <span class="book-title">Eat This Book</span>
+                    <span class="book-author">Eugene Peterson</span>
+                </a>
             </div>
         </section>
 
-        <!-- ==========================
-        PROFESSIONAL/ACADEMIC SECTION
-        =========================== -->
-        <section class="features text-center section-padding" id="service">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="arrow">What <span>I</span> Do</h1>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="services">
-                            <!-- Service Box 1 -->
-                            <div class="col-md-4 wp2 item">
-                                <div class="icon">
-                                    <i class="fa fa-database"></i>
-                                </div>
-                                <h2 class="service-title">Data Science</h2>
-                                <p class="service-desc">My knowledge base is composed of a wide array of topics
-                                    including: traditional statistical processes, deep learning, and all things NLP. I
-                                    have done numerous professional, academic, and hobby level projects involved in this
-                                    field. Currently, my main area of learning is text-preprocessing theory, entity
-                                    clustering, relationship extraction, and text classification. I have completed
-                                    certifications from Google, NVIDIA, and CompTIA.</p>
-                            </div>
-                            <!-- Service Box 2 -->
-                            <div class="col-md-4 wp2 item delay-05s">
-                                <div class="icon">
-                                    <i class="fa fa-desktop"></i>
-                                </div>
-                                <h2 class="service-title">Web Design</h2>
-                                <p class="service-desc">I was a developer for my college's website (still shudder at the
-                                    sight of VB.NET) and have worked on many websites professionally and for fun. A
-                                    great website is a work of art. It requires technical knowledge, an eye for themes,
-                                    and dedication to making the website as seamless as possible. It is a creative way
-                                    for me to engage my technical knowledge with art and design, while still maintaining
-                                    purpose.</p>
-                            </div>
-                            <!-- Service Box 3 -->
-                            <div class="col-md-4 wp2 item delay-1s">
-                                <div class="icon">
-                                    <i class="fa fa-th"></i>
-                                </div>
-                                <h2 class="service-title">Research</h2>
-                                <p class="service-desc">My research centers around solving information asymmetries with
-                                    specific emphasis on solving issues related to adverse selection, principal-agent
-                                    problems, moral hazard, and signaling. Additionally, I performed original economic
-                                    research in same-sex married couples demographics, Friedrich Hayek and ledger
-                                    technology, and information asymmetry solutions. My current research is "Addressing
-                                    Principal-Agent Problems in Public Policy Implementation: An Analysis of Regulatory
-                                    Compliance and Enforcement Mechanisms."</p>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="font-optima" style="color:black;">Hobbies</h1>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="services">
-                            <!-- Hobby Box 1 -->
-                            <div class="col-md-3 wp2 item delay-0.5s">
-                                <div class="icon">
-                                    <i class="fa fa-bicycle"></i>
-                                </div>
-                                <h2 class="hobby-title">Mountain Biking</h2>
-                            </div>
-                            <!-- Hobby Box 2 -->
-                            <div class="col-md-3 wp2 item delay-1s">
-                                <div class="icon">
-                                    <i class="fa fa-chess"></i>
-                                </div>
-                                <h2 class="hobby-title">Chess</h2>
-                            </div>
-                            <!-- Hobby Box 3 -->
-                            <div class="col-md-3 wp2 item delay-1.5s">
-                                <div class="icon">
-                                    <i class="fa fa-align-left"></i>
-                                </div>
-                                <h2 class="hobby-title">Ceramics</h2>
-                            </div>
-                            <!-- Hobby Box 4 -->
-                            <div class="col-md-3 wp2 item delay-2s">
-                                <div class="icon">
-                                    <i class="fa fa-film"></i>
-                                </div>
-                                <h2 class="hobby-title">Documentary-Watching</h2>
-                                <h3 class="hobby-subtitle">I will watch one on literally anything</h3>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <hr>
 
         <!-- ==========================
-        PORTFOLIO SECTION
+        DIRECTORY SECTION
         =========================== -->
-        <section class="swag text-center" id="portfolio">
-            <div class="container">
-                <div class="row">
-                    <h1 class="arrow">
-                        Images
-                    </h1>
-                </div>
-            </div>
-        </section>
-
-        <div class="container">
-            <div class="row row-offset-0">
-                <!-- PORTFOLIO ITEM 1 -->
-                <div class="col-md-3 col-sm-6">
-                    <div class="overlay-effect effects clearfix">
-                        <div class="img">
-                            <a href="img/portfolio/portfolio-01-large.jpg" data-lightbox="roadtrip"
-                                title="Drone Shot"><img class="grayscale" src="img/portfolio/portfolio-01-thumbnail.jpg"
-                                    alt="Drone Shot" loading="lazy"></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- PORTFOLIO ITEM 2 -->
-                <div class="col-md-3 col-sm-6">
-                    <div class="overlay-effect effects clearfix">
-                        <div class="img">
-                            <a href="img/portfolio/portfolio-02-large.jpg" data-lightbox="roadtrip"
-                                title="Paddleboard John"><img class="grayscale"
-                                    src="img/portfolio/portfolio-02-thumbnail.jpg" alt="Paddleboard John"
-                                    loading="lazy"></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- PORTFOLIO ITEM 3 -->
-                <div class="col-md-3 col-sm-6">
-                    <div class="overlay-effect effects clearfix">
-                        <div class="img">
-                            <a href="img/portfolio/portfolio-03-large.jpg" data-lightbox="roadtrip"
-                                title="Old Main Impressions"><img class="grayscale"
-                                    src="img/portfolio/portfolio-03-thumbnail.jpg" alt="Old Main Impressions"
-                                    loading="lazy"></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- PORTFOLIO ITEM 4 -->
-                <div class="col-md-3 col-sm-6 ">
-                    <div class="overlay-effect effects clearfix">
-                        <div class="img">
-                            <a href="img/portfolio/portfolio-04-large.jpg" data-lightbox="roadtrip"
-                                title="Bird of Prey"><img class="grayscale"
-                                    src="img/portfolio/portfolio-04-thumbnail.jpg" alt="Bird of Prey"
-                                    loading="lazy"></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- PORTFOLIO ITEM 5 -->
-                <div class="col-md-3 col-sm-6 ">
-                    <div class="overlay-effect effects clearfix">
-                        <div class="img">
-                            <a href="img/portfolio/portfolio-05-large.jpg" data-lightbox="roadtrip"
-                                title="Bird of Not So Prey"><img class="grayscale"
-                                    src="img/portfolio/portfolio-05-thumbnail.jpg" alt="Bird of Not So Prey"
-                                    loading="lazy"></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- PORTFOLIO ITEM 6 -->
-                <div class="col-md-3 col-sm-6">
-                    <div class="overlay-effect effects clearfix">
-                        <div class="img">
-                            <a href="img/portfolio/portfolio-06-large.jpg" data-lightbox="roadtrip"
-                                title="Japan-Day 18"><img class="grayscale"
-                                    src="img/portfolio/portfolio-06-thumbnail.jpg" alt="Japan-Day 18"
-                                    loading="lazy"></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- PORTFOLIO ITEM 7 -->
-                <div class="col-md-3 col-sm-6">
-                    <div class="overlay-effect effects clearfix">
-                        <div class="img">
-                            <a href="img/portfolio/portfolio-07-large.jpg" data-lightbox="roadtrip"
-                                title="Mean One"><img class="grayscale" src="img/portfolio/portfolio-07-thumbnail.jpg"
-                                    alt="Mean One" loading="lazy"></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- PORTFOLIO ITEM 8 -->
-                <div class="col-md-3 col-sm-6">
-                    <div class="overlay-effect effects clearfix">
-                        <div class="img">
-                            <a href="img/portfolio/portfolio-08-large.jpg" data-lightbox="roadtrip"
-                                title="Nara Deer"><img class="grayscale" src="img/portfolio/portfolio-08-thumbnail.jpg"
-                                    alt="Nara Deer" loading="lazy"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ==========================
-        Book Shelf
-        =========================== -->
-        <section class="spacer-cta text-center">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h1 class="aliquyam bookshelf-title">
-                                    The Bookshelf
-                                </h1>
-                            </div>
-                        </div>
-                        <div class="bookshelf-grid">
-                            <!-- Outliers -->
-                            <a href="https://www.amazon.com/Outliers-Story-Success-Malcolm-Gladwell/dp/0316017930"
-                                target="_blank" class="book-item">
-                                <img src="img/BookCovers/Outliers.jpg" alt="Outliers by Malcolm Gladwell"
-                                    loading="lazy">
-                            </a>
-                            <!-- Hero with a thousand faces -->
-                            <a href="https://www.amazon.com/Thousand-Faces-Collected-Joseph-Campbell/dp/1577315936"
-                                target="_blank" class="book-item">
-                                <img src="img/BookCovers/HTF.jpg" alt="Hero with a Thousand Faces by Joseph Campbell"
-                                    loading="lazy">
-                            </a>
-                            <!-- P o DG -->
-                            <a href="https://www.amazon.com/Picture-Dorian-Gray-Oscar-Wilde/dp/1512395463"
-                                target="_blank" class="book-item">
-                                <img src="img/BookCovers/PoDG.jpg" alt="Picture of Dorian Gray by Oscar Wilde"
-                                    loading="lazy">
-                            </a>
-                            <!-- Road to Character -->
-                            <a href="https://www.amazon.com/The-Road-to-Character/dp/B00V3WMYN0" target="_blank"
-                                class="book-item">
-                                <img src="img/BookCovers/Road.jpg" alt="The Road to Character by David Brooks"
-                                    loading="lazy">
-                            </a>
-                            <!-- On Grand Strategy -->
-                            <a href="https://www.amazon.com/Grand-Strategy-John-Lewis-Gaddis/dp/1594203512"
-                                target="_blank" class="book-item">
-                                <img src="img/BookCovers/GrandStrategy.jpg" alt="On Grand Strategy by John Lewis Gaddis"
-                                    loading="lazy">
-                            </a>
-                            <!-- Factfulness -->
-                            <a href="https://www.amazon.com/Factfulness-Reasons-World-Things-Better/dp/1250107814"
-                                target="_blank" class="book-item">
-                                <img src="img/BookCovers/Factfulness.jpg" alt="Factfulness by Hans Rosling"
-                                    loading="lazy">
-                            </a>
-                            <!-- Prisoners of Geography -->
-                            <a href="https://www.amazon.com/Prisoners-Geography-Explain-Everything-About/dp/B01M9F16BF"
-                                target="_blank" class="book-item">
-                                <img src="img/BookCovers/Geography.jpg" alt="Prisoners of Geography by Tim Marshall"
-                                    loading="lazy">
-                            </a>
-                            <!-- Brothers Karamazov -->
-                            <a href="https://www.amazon.com/Brothers-Karamazov-Modern-Library/dp/0679601813"
-                                target="_blank" class="book-item">
-                                <img src="img/BookCovers/Brothers.jpg" alt="The Brothers Karamazov by Fyodor Dostoevsky"
-                                    loading="lazy">
-                            </a>
-                            <!-- Hobbit -->
-                            <a href="https://www.amazon.com/Hobbit-There-Back-Again/dp/061815082X" target="_blank"
-                                class="book-item">
-                                <img src="img/BookCovers/Hobbit.jpg" alt="The Hobbit by J.R.R. Tolkien" loading="lazy">
-                            </a>
-                            <!-- Tales on the Town -->
-                            <a href="https://www.amazon.com/Tales-Town-Bennett-Joyce/dp/1483485331" target="_blank"
-                                class="book-item">
-                                <img src="img/BookCovers/Tales.jpg" alt="Tales on the Town by Bennett Joyce"
-                                    loading="lazy">
-                            </a>
-                            <!-- Brave New World -->
-                            <a href="https://www.amazon.com/Brave-New-World-Aldous-Huxley/dp/0060850523" target="_blank"
-                                class="book-item">
-                                <img src="img/BookCovers/BraveNewWorld.jpg" alt="Brave New World by Aldous Huxley"
-                                    loading="lazy">
-                            </a>
-                            <!-- Mr. Penumbra's -->
-                            <a href="https://www.amazon.com/Mr-Penumbras-24-Hour-Bookstore-Novel/dp/1250037751"
-                                target="_blank" class="book-item">
-                                <img src="img/BookCovers/Penumbras.jpg"
-                                    alt="Mr. Penumbra's 24-Hour Bookstore by Robin Sloan" loading="lazy">
-                            </a>
-                            <!-- Lost art of Scripture -->
-                            <a href="https://www.amazon.com/Lost-Art-Scripture-Rescuing-Sacred/dp/0525656122"
-                                target="_blank" class="book-item">
-                                <img src="img/BookCovers/LostArt.jpg" alt="The Lost Art of Scripture by Karen Armstrong"
-                                    loading="lazy">
-                            </a>
-                            <!-- Wisdom of Finance -->
-                            <a href="https://www.amazon.com/Wisdom-Finance-Discovering-Humanity-Return/dp/054491113X"
-                                target="_blank" class="book-item">
-                                <img src="img/BookCovers/WOF.jpg" alt="The Wisdom of Finance by Mihir Desai"
-                                    loading="lazy">
-                            </a>
-                            <!-- Algorithms to Live By -->
-                            <a href="https://www.amazon.com/Algorithms-Live-Computer-Science-Decisions/dp/1627790365"
-                                target="_blank" class="book-item">
-                                <img src="img/BookCovers/Algorithms.jpg" alt="Algorithms to Live By by Brian Christian"
-                                    loading="lazy">
-                            </a>
-                            <!-- You Are What You Love -->
-                            <a href="https://www.amazon.com/You-Are-What-Love-Spiritual/dp/158743380X" target="_blank"
-                                class="book-item">
-                                <img src="img/BookCovers/YouLove.jpg" alt="You Are What You Love by James K.A. Smith"
-                                    loading="lazy">
-                            </a>
-                            <!-- Denial of Death -->
-                            <a href="https://www.amazon.com/Denial-Death-Ernest-Becker/dp/0684832402" target="_blank"
-                                class="book-item">
-                                <img src="img/BookCovers/Denial.jpg" alt="The Denial of Death by Ernest Becker"
-                                    loading="lazy">
-                            </a>
-                            <!-- Eat This Book -->
-                            <a href="https://www.amazon.com/Eat-This-Book-Conversation-Spiritual/dp/0802864902"
-                                target="_blank" class="book-item">
-                                <img src="img/BookCovers/Eat.jpg" alt="Eat This Book by Eugene Peterson" loading="lazy">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <section id="directory">
+            <h2>Elsewhere</h2>
+            <ul class="directory-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="w.html">Writing Repo</a></li>
+                <li><a href="q.html">Quotes</a></li>
+                <li><a href="speeches.html">Speeches</a></li>
+                <li><a href="p.html">Poems</a></li>
+                <li><a href="songs.html">Songs</a></li>
+                <li><a href="https://github.com/CameronBJoyce/" target="_blank" rel="noopener">GitHub</a></li>
+            </ul>
         </section>
     </main>
 
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <!-- SmoothScroll -->
-    <script type="text/javascript" src="assets/smoothscroll/smoothscroll.js"></script>
-    <!-- Bootstrap -->
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <!-- Waypoints -->
-    <script src="js/waypoints.min.js"></script>
-    <!-- classie.js -->
-    <script src="js/classie.js"></script>
-    <!-- FlexSlider -->
-    <script src="assets/flexslider/jquery.flexslider.js"></script>
-    <!-- Modernizr -->
-    <script src="js/modernizr.js"></script>
-    <!-- Text Rotator -->
-    <script src="assets/textrotator/jquery.simple-text-rotator.js"></script>
-    <!-- Lightbox.js -->
-    <script src="assets/lightbox/js/lightbox.min.js"></script>
-    <!-- Theme JavaScript Core -->
-    <script src="js/main.js"></script>
-    <script src="js/script.js"></script>
-    <!-- Hidden Lining -->
-    <script src="js/lining.js"></script>
+    <footer>
+        <p>&copy; Cameron <b><i>Bennett</i></b> Joyce</p>
+    </footer>
 
-    <!-- TEXT ROTATOR SETTINGS -->
-    <script type="text/javascript">
-        $(".rotate").textrotator({
-            animation: "fade",
-            separator: ",",
-            speed: 2000
-        });
-    </script>
+    <script src="js/lining.js"></script>
 </body>
 
 </html>
