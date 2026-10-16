@@ -5,14 +5,30 @@
 }
 
 body {
-	max-width: 40em;
+	/* Scales smoothly from 19px on mobile up to 26px on 4K/5K monitors */
+	font-size: clamp(1.1875rem, 1rem + 0.55vw, 1.625rem);
+	line-height: 1.55;
+
+	/* Scales column width proportionally with the font size (up to ~1,100px on 5K) */
+	max-width: 42em;
+	width: 88vw;
+
+	/* Generous top/bottom margin so it looks intentional on tall monitors */
 	margin: 0 auto;
-	padding: 5px;
+	padding: clamp(2.5rem, 8vh, 6rem) 0;
+	box-sizing: border-box;
+
 	font-family: Georgia, serif;
-	font-size: 20px;
-	line-height: 30px;
 	background-color: #fff0db;
-	color: #000
+	color: #000;
+}
+
+hr {
+	width: 100%;
+	border: none;
+	border-top: 1px solid currentColor;
+	opacity: 0.25;
+	margin: 2em 0;
 }
 
 h1,
@@ -62,13 +78,17 @@ h2 a {
 	text-decoration: underline
 }
 
-h2,
-h3 {
+h2 {
 	margin-top: 2em
 }
 
-h3 {
-	font-size: 1.5em
+h3+h4 {
+	font-family: valkyrie_c4, Georgia, serif;
+	font-weight: normal;
+	font-style: italic;
+	color: #666;
+	margin-top: -0.75em;
+	margin-bottom: 1.5em;
 }
 
 a {

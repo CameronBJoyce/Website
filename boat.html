@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boat Purchase Calculator</title>
     <style>
         :root {
-            --primary: #0A2540;       
-            --secondary: #635BFF;     
-            --bg-page: #F6F9FC;       
-            --bg-panel: #FFFFFF;      
-            --text-main: #32325D;     
-            --text-muted: #8898AA;    
-            --border: #E6EBF1;        
-            --success: #2ECC71;       
+            --primary: #0A2540;
+            --secondary: #635BFF;
+            --bg-page: #F6F9FC;
+            --bg-panel: #FFFFFF;
+            --text-main: #32325D;
+            --text-muted: #8898AA;
+            --border: #E6EBF1;
+            --success: #2ECC71;
             --success-bg: #E8F8F5;
-            --danger: #E74C3C;        
+            --danger: #E74C3C;
             --danger-bg: #FDEDEC;
             --highlight: #F0F4F8;
         }
-        
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-page);
@@ -28,26 +29,32 @@
             margin: 0;
             padding: 20px;
         }
+
         .container {
             max-width: 1100px;
             margin: auto;
             background: var(--bg-panel);
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
         }
+
         @media (max-width: 768px) {
-            .container { grid-template-columns: 1fr; }
+            .container {
+                grid-template-columns: 1fr;
+            }
         }
+
         h1 {
             color: var(--primary);
             font-size: 24px;
             margin-top: 0;
             margin-bottom: 5px;
         }
+
         h2 {
             color: var(--primary);
             font-size: 18px;
@@ -55,25 +62,36 @@
             padding-bottom: 10px;
             margin-top: 0;
         }
+
         h3 {
             font-size: 16px;
             margin: 0 0 10px 0;
             color: var(--primary);
         }
+
         p.subtitle {
             color: var(--text-muted);
             margin-top: 0;
             margin-bottom: 20px;
         }
-        .full-width { grid-column: 1 / -1; }
-        .form-group { margin-bottom: 15px; }
-        label { 
-            display: block; 
-            font-weight: 600; 
-            margin-bottom: 6px; 
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
             font-size: 14px;
         }
-        input[type="number"], select {
+
+        input[type="number"],
+        select {
             width: 100%;
             padding: 10px 12px;
             border: 1px solid var(--border);
@@ -84,16 +102,20 @@
             background-color: #FAFCFE;
             transition: border-color 0.2s ease;
         }
-        input[type="number"]:focus, select:focus {
+
+        input[type="number"]:focus,
+        select:focus {
             outline: none;
             border-color: var(--secondary);
             box-shadow: 0 0 0 3px rgba(99, 91, 255, 0.1);
         }
+
         .results-panel {
             background: var(--highlight);
             padding: 25px;
             border-radius: 8px;
         }
+
         .result-row {
             display: flex;
             justify-content: space-between;
@@ -101,9 +123,16 @@
             padding: 12px 0;
             font-size: 15px;
         }
-        .result-row:last-child { border-bottom: none; }
-        .result-row strong { color: var(--primary); font-weight: 700; }
-        
+
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .result-row strong {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
         .card {
             background-color: var(--bg-panel);
             padding: 20px;
@@ -111,17 +140,21 @@
             margin-top: 20px;
             border: 1px solid var(--border);
         }
+
         .card.danger {
             border-left: 4px solid var(--danger);
         }
+
         .card.success {
             border-left: 4px solid var(--secondary);
         }
+
         .note {
             font-size: 12px;
             color: var(--text-muted);
             margin-top: 4px;
         }
+
         .nc-badge {
             display: inline-block;
             background: #E1EFFF;
@@ -135,286 +168,294 @@
         }
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <div class="full-width">
-        <h1>Boat Purchase Analysis</h1>
-        <p class="subtitle">Hold Evaluation</p>
+    <div class="container">
+        <div class="full-width">
+            <h1>Boat Purchase Analysis</h1>
+            <p class="subtitle">Hold Evaluation</p>
+        </div>
+
+        <!-- Inputs Section -->
+        <div>
+            <h2>Financial Inputs</h2>
+
+            <div class="form-group">
+                <label for="price">Purchase Price ($)</label>
+                <input type="number" id="price" value="25000" step="1000">
+            </div>
+
+            <div class="form-group"
+                style="background: #E8F8F5; padding: 12px; border-radius: 6px; border: 1px solid #BEE5EB; margin-bottom: 15px;">
+                <label for="holdMonths" style="color: #0F5132;">Months Held Before Sale</label>
+                <input type="number" id="holdMonths" value="24" step="6" style="border-color: #BEE5EB;">
+                <div class="note" style="color: #198754;">How long the boat is owned before selling.</div>
+            </div>
+
+            <div style="display: flex; gap: 15px;">
+                <div class="form-group" style="flex: 1;">
+                    <label for="salesTax">NC Sales Tax (%) <span class="nc-badge">Capped at $1.5k</span></label>
+                    <input type="number" id="salesTax" value="3.0" step="0.1">
+                </div>
+                <div class="form-group" style="flex: 1;">
+                    <label for="regFee">Reg & Title ($)</label>
+                    <input type="number" id="regFee" value="150" step="10">
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 15px;">
+                <div class="form-group" style="flex: 1;">
+                    <label for="term">Loan Term (Months)</label>
+                    <input type="number" id="term" value="180" step="12">
+                </div>
+                <div class="form-group" style="flex: 1;">
+                    <label for="rate">Interest Rate (%)</label>
+                    <input type="number" id="rate" value="8.6" step="0.1">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="brokerFee">Broker / Selling Fee (%)</label>
+                <input type="number" id="brokerFee" value="10.0" step="1.0">
+                <div class="note">Standard marine broker fee applied at the time of sale.</div>
+            </div>
+
+            <h2>Regional & Market Variables</h2>
+
+            <div class="form-group">
+                <label for="propTaxZone">Tax Jurisdiction (New Hanover Co.)</label>
+                <select id="propTaxZone">
+                    <option value="0.55" selected>Unincorporated County / Driveway (0.55% Annual)</option>
+                    <option value="0.95">Within Wilmington City Limits (County + City ~0.95% Annual)</option>
+                </select>
+                <div class="note">NC ad valorem tax applies based on where the boat is physically parked or stored.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="depreciation">Annual Depreciation</label>
+                <select id="depreciation">
+                    <option value="0.03">Good (3% Annual)</option>
+                    <option value="0.06" selected>Expected (6% Annual)</option>
+                    <option value="0.10">Worse (10% Annual)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="ownership">Coastal Maint & Insurance (Annual)</label>
+                <select id="ownership">
+                    <option value="1000">Good ($1,000/yr - Minimal breaks, basic Ins)</option>
+                    <option value="2000" selected>Expected ($2,000/yr - Standard saltwater wear & Ins)</option>
+                    <option value="3500">Worse ($3,500/yr - Major coastal repair needed)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="marketRate">Opportunity Cost: Market Return (%)</label>
+                <input type="number" id="marketRate" value="7.0" step="0.1">
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-panel">
+            <h2 id="summaryTitle">Financial Summary</h2>
+
+            <div class="result-row">
+                <span>Monthly Loan Payment:</span>
+                <strong id="outPayment">$0.00</strong>
+            </div>
+            <div class="result-row">
+                <span>NC Taxes & Reg (Upfront):</span>
+                <strong id="outUpfront">$0.00</strong>
+            </div>
+            <div class="result-row">
+                <span>Property Tax (Total Over Hold):</span>
+                <strong id="outCountyTax">$0.00</strong>
+            </div>
+            <div class="result-row">
+                <span id="labelBalance">Loan Balance at Sale:</span>
+                <strong id="outBalance">$0.00</strong>
+            </div>
+            <div class="result-row">
+                <span>Boat Value at Sale (After Broker Fee):</span>
+                <strong id="outNetValue">$0.00</strong>
+            </div>
+            <div class="result-row" id="equityRow"
+                style="background: var(--danger-bg); padding: 12px; margin-top: 10px; border-radius: 4px;">
+                <span style="font-weight: 600;">Net Equity at Sale (Value - Loan):</span>
+                <strong id="outEquity" style="color: var(--danger);">$0.00</strong>
+            </div>
+
+            <div class="card danger">
+                <h3>Standard Out-of-Pocket Cost</h3>
+                <p class="note" style="margin-top: 0; margin-bottom: 12px;">Total cash burned on depreciation, interest,
+                    taxes, and maintenance over the holding period.</p>
+                <div class="result-row">
+                    <span>If Paid in Cash:</span>
+                    <strong id="outNetCash">$0.00</strong>
+                </div>
+                <div class="result-row">
+                    <span>If Financed:</span>
+                    <strong id="outNetFinance">$0.00</strong>
+                </div>
+            </div>
+
+            <div class="card success">
+                <h3>True Economic Cost (Opportunity Cost)</h3>
+                <p class="note" style="margin-top: 0; margin-bottom: 12px;">Factors in the compound interest lost by
+                    tying up capital instead of leaving it in the market.</p>
+                <div class="result-row">
+                    <span>True Cost (Cash):</span>
+                    <strong id="outTrueCash">$0.00</strong>
+                </div>
+                <div class="result-row">
+                    <span>True Cost (Financed):</span>
+                    <strong id="outTrueFinance">$0.00</strong>
+                </div>
+                <div class="result-row" style="margin-top: 10px; border: none; padding-bottom: 0;">
+                    <span style="font-weight: 600; color: var(--text-main);">Mathematically Optimal:</span>
+                    <strong id="outWinner"
+                        style="color: var(--secondary); background: #E1EFFF; padding: 4px 8px; border-radius: 4px;">Calculating...</strong>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Inputs Section -->
-    <div>
-        <h2>Financial Inputs</h2>
-        
-        <div class="form-group">
-            <label for="price">Purchase Price ($)</label>
-            <input type="number" id="price" value="25000" step="1000">
-        </div>
-
-        <div class="form-group" style="background: #E8F8F5; padding: 12px; border-radius: 6px; border: 1px solid #BEE5EB; margin-bottom: 15px;">
-            <label for="holdMonths" style="color: #0F5132;">Months Held Before Sale</label>
-            <input type="number" id="holdMonths" value="24" step="6" style="border-color: #BEE5EB;">
-            <div class="note" style="color: #198754;">How long the boat is owned before selling.</div>
-        </div>
-        
-        <div style="display: flex; gap: 15px;">
-            <div class="form-group" style="flex: 1;">
-                <label for="salesTax">NC Sales Tax (%) <span class="nc-badge">Capped at $1.5k</span></label>
-                <input type="number" id="salesTax" value="3.0" step="0.1">
-            </div>
-            <div class="form-group" style="flex: 1;">
-                <label for="regFee">Reg & Title ($)</label>
-                <input type="number" id="regFee" value="150" step="10">
-            </div>
-        </div>
-
-        <div style="display: flex; gap: 15px;">
-            <div class="form-group" style="flex: 1;">
-                <label for="term">Loan Term (Months)</label>
-                <input type="number" id="term" value="180" step="12">
-            </div>
-            <div class="form-group" style="flex: 1;">
-                <label for="rate">Interest Rate (%)</label>
-                <input type="number" id="rate" value="8.6" step="0.1">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="brokerFee">Broker / Selling Fee (%)</label>
-            <input type="number" id="brokerFee" value="10.0" step="1.0">
-            <div class="note">Standard marine broker fee applied at the time of sale.</div>
-        </div>
-
-        <h2>Regional & Market Variables</h2>
-
-        <div class="form-group">
-            <label for="propTaxZone">Tax Jurisdiction (New Hanover Co.)</label>
-            <select id="propTaxZone">
-                <option value="0.55" selected>Unincorporated County / Driveway (0.55% Annual)</option>
-                <option value="0.95">Within Wilmington City Limits (County + City ~0.95% Annual)</option>
-            </select>
-            <div class="note">NC ad valorem tax applies based on where the boat is physically parked or stored.</div>
-        </div>
-
-        <div class="form-group">
-            <label for="depreciation">Annual Depreciation</label>
-            <select id="depreciation">
-                <option value="0.03">Good (3% Annual)</option>
-                <option value="0.06" selected>Expected (6% Annual)</option>
-                <option value="0.10">Worse (10% Annual)</option>
-            </select>
-        </div>
-        
-        <div class="form-group">
-            <label for="ownership">Coastal Maint & Insurance (Annual)</label>
-            <select id="ownership">
-                <option value="1000">Good ($1,000/yr - Minimal breaks, basic Ins)</option>
-                <option value="2000" selected>Expected ($2,000/yr - Standard saltwater wear & Ins)</option>
-                <option value="3500">Worse ($3,500/yr - Major coastal repair needed)</option>
-            </select>
-        </div>
-        
-        <div class="form-group">
-            <label for="marketRate">Opportunity Cost: Market Return (%)</label>
-            <input type="number" id="marketRate" value="7.0" step="0.1">
-        </div>
-    </div>
-
-    <!-- Results Section -->
-    <div class="results-panel">
-        <h2 id="summaryTitle">Financial Summary</h2>
-        
-        <div class="result-row">
-            <span>Monthly Loan Payment:</span>
-            <strong id="outPayment">$0.00</strong>
-        </div>
-        <div class="result-row">
-            <span>NC Taxes & Reg (Upfront):</span>
-            <strong id="outUpfront">$0.00</strong>
-        </div>
-        <div class="result-row">
-            <span>Property Tax (Total Over Hold):</span>
-            <strong id="outCountyTax">$0.00</strong>
-        </div>
-        <div class="result-row">
-            <span id="labelBalance">Loan Balance at Sale:</span>
-            <strong id="outBalance">$0.00</strong>
-        </div>
-        <div class="result-row">
-            <span>Boat Value at Sale (After Broker Fee):</span>
-            <strong id="outNetValue">$0.00</strong>
-        </div>
-        <div class="result-row" id="equityRow" style="background: var(--danger-bg); padding: 12px; margin-top: 10px; border-radius: 4px;">
-            <span style="font-weight: 600;">Net Equity at Sale (Value - Loan):</span>
-            <strong id="outEquity" style="color: var(--danger);">$0.00</strong>
-        </div>
-
-        <div class="card danger">
-            <h3>Standard Out-of-Pocket Cost</h3>
-            <p class="note" style="margin-top: 0; margin-bottom: 12px;">Total cash burned on depreciation, interest, taxes, and maintenance over the holding period.</p>
-            <div class="result-row">
-                <span>If Paid in Cash:</span>
-                <strong id="outNetCash">$0.00</strong>
-            </div>
-            <div class="result-row">
-                <span>If Financed:</span>
-                <strong id="outNetFinance">$0.00</strong>
-            </div>
-        </div>
-
-        <div class="card success">
-            <h3>True Economic Cost (Opportunity Cost)</h3>
-            <p class="note" style="margin-top: 0; margin-bottom: 12px;">Factors in the compound interest lost by tying up capital instead of leaving it in the market.</p>
-            <div class="result-row">
-                <span>True Cost (Cash):</span>
-                <strong id="outTrueCash">$0.00</strong>
-            </div>
-            <div class="result-row">
-                <span>True Cost (Financed):</span>
-                <strong id="outTrueFinance">$0.00</strong>
-            </div>
-            <div class="result-row" style="margin-top: 10px; border: none; padding-bottom: 0;">
-                <span style="font-weight: 600; color: var(--text-main);">Mathematically Optimal:</span>
-                <strong id="outWinner" style="color: var(--secondary); background: #E1EFFF; padding: 4px 8px; border-radius: 4px;">Calculating...</strong>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    function formatCurrency(num) {
-        return '$' + num.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
-    }
-
-    function calculate() {
-        // Core Inputs
-        const P = parseFloat(document.getElementById('price').value) || 0;
-        const months = parseInt(document.getElementById('term').value) || 1;
-        const annualRate = parseFloat(document.getElementById('rate').value) || 0;
-        const monthlyRate = annualRate / 100 / 12;
-        const holdMonths = parseInt(document.getElementById('holdMonths').value) || 0;
-        const holdYears = holdMonths / 12;
-        
-        // Regional Inputs
-        const salesTaxRate = parseFloat(document.getElementById('salesTax').value) / 100 || 0;
-        const regFee = parseFloat(document.getElementById('regFee').value) || 0;
-        const brokerFeeRate = parseFloat(document.getElementById('brokerFee').value) / 100 || 0;
-        const propTaxRate = parseFloat(document.getElementById('propTaxZone').value) / 100 || 0;
-        
-        const depRate = parseFloat(document.getElementById('depreciation').value);
-        const annualCost = parseFloat(document.getElementById('ownership').value) || 0;
-        const marketRate = parseFloat(document.getElementById('marketRate').value) / 100 / 12 || 0;
-
-        // Update Labels
-        document.getElementById('summaryTitle').textContent = `${holdMonths}-Month Financial Summary`;
-        document.getElementById('labelBalance').textContent = `Loan Balance at ${holdMonths} Months:`;
-
-        // NC Specific Math: Sales tax is capped at $1500
-        let calculatedSalesTax = P * salesTaxRate;
-        let actualSalesTax = Math.min(calculatedSalesTax, 1500);
-        const upfrontFees = actualSalesTax + regFee;
-        const initialCapital = P + upfrontFees;
-
-        // Loan Math
-        let payment = P;
-        if (monthlyRate > 0) {
-            payment = (P * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -months));
-        } else {
-            payment = P / months;
+    <script>
+        function formatCurrency(num) {
+            return '$' + num.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
         }
 
-        // Amortization loop to find balance at hold period
-        let balance = P;
-        for (let i = 0; i < holdMonths; i++) {
-            let interest = balance * monthlyRate;
-            let principal = payment - interest;
-            balance -= principal;
-        }
+        function calculate() {
+            // Core Inputs
+            const P = parseFloat(document.getElementById('price').value) || 0;
+            const months = parseInt(document.getElementById('term').value) || 1;
+            const annualRate = parseFloat(document.getElementById('rate').value) || 0;
+            const monthlyRate = annualRate / 100 / 12;
+            const holdMonths = parseInt(document.getElementById('holdMonths').value) || 0;
+            const holdYears = holdMonths / 12;
 
-        // Values at End of Hold Period
-        let boatValueGross = P * Math.pow(1 - depRate, holdYears);
-        
-        // Property Tax calculation based on jurisdiction selection
-        let totalCountyTax = 0;
-        for (let year = 1; year <= Math.ceil(holdYears); year++) {
-            let yearStartVal = P * Math.pow(1 - depRate, year - 1);
-            let proportion = 1; 
-            if (year > holdYears) {
-                proportion = holdYears - (year - 1); // Prorate the final partial year
+            // Regional Inputs
+            const salesTaxRate = parseFloat(document.getElementById('salesTax').value) / 100 || 0;
+            const regFee = parseFloat(document.getElementById('regFee').value) || 0;
+            const brokerFeeRate = parseFloat(document.getElementById('brokerFee').value) / 100 || 0;
+            const propTaxRate = parseFloat(document.getElementById('propTaxZone').value) / 100 || 0;
+
+            const depRate = parseFloat(document.getElementById('depreciation').value);
+            const annualCost = parseFloat(document.getElementById('ownership').value) || 0;
+            const marketRate = parseFloat(document.getElementById('marketRate').value) / 100 / 12 || 0;
+
+            // Update Labels
+            document.getElementById('summaryTitle').textContent = `${holdMonths}-Month Financial Summary`;
+            document.getElementById('labelBalance').textContent = `Loan Balance at ${holdMonths} Months:`;
+
+            // NC Specific Math: Sales tax is capped at $1500
+            let calculatedSalesTax = P * salesTaxRate;
+            let actualSalesTax = Math.min(calculatedSalesTax, 1500);
+            const upfrontFees = actualSalesTax + regFee;
+            const initialCapital = P + upfrontFees;
+
+            // Loan Math
+            let payment = P;
+            if (monthlyRate > 0) {
+                payment = (P * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -months));
+            } else {
+                payment = P / months;
             }
-            totalCountyTax += yearStartVal * propTaxRate * proportion;
+
+            // Amortization loop to find balance at hold period
+            let balance = P;
+            for (let i = 0; i < holdMonths; i++) {
+                let interest = balance * monthlyRate;
+                let principal = payment - interest;
+                balance -= principal;
+            }
+
+            // Values at End of Hold Period
+            let boatValueGross = P * Math.pow(1 - depRate, holdYears);
+
+            // Property Tax calculation based on jurisdiction selection
+            let totalCountyTax = 0;
+            for (let year = 1; year <= Math.ceil(holdYears); year++) {
+                let yearStartVal = P * Math.pow(1 - depRate, year - 1);
+                let proportion = 1;
+                if (year > holdYears) {
+                    proportion = holdYears - (year - 1); // Prorate the final partial year
+                }
+                totalCountyTax += yearStartVal * propTaxRate * proportion;
+            }
+
+            let brokerCost = boatValueGross * brokerFeeRate;
+            let boatValueNet = boatValueGross - brokerCost;
+
+            let equity = boatValueNet - balance;
+            let totalMaint = (annualCost * holdYears) + totalCountyTax;
+
+            // Standard Net Cost (Out of pocket burned)
+            let standardCashCost = P + upfrontFees + totalMaint - boatValueNet;
+            let standardFinanceCost = upfrontFees + (payment * holdMonths) + totalMaint + (balance - boatValueNet);
+
+            // Opportunity Cost Math
+            let investFinance = P;
+            for (let i = 0; i < holdMonths; i++) {
+                investFinance = investFinance * (1 + marketRate) - payment;
+            }
+
+            let investCash = 0;
+            for (let i = 0; i < holdMonths; i++) {
+                investCash = investCash * (1 + marketRate) + payment;
+            }
+
+            let totalAssetsCash = boatValueNet + investCash;
+            let trueCostCash = initialCapital + totalMaint - totalAssetsCash;
+
+            let totalAssetsFinance = (boatValueNet - balance) + investFinance;
+            let trueCostFinance = initialCapital + totalMaint - totalAssetsFinance;
+
+            // Update DOM Elements
+            document.getElementById('outPayment').textContent = formatCurrency(payment);
+            document.getElementById('outUpfront').textContent = formatCurrency(upfrontFees);
+            document.getElementById('outCountyTax').textContent = formatCurrency(totalCountyTax);
+            document.getElementById('outBalance').textContent = formatCurrency(balance);
+            document.getElementById('outNetValue').textContent = formatCurrency(boatValueNet);
+
+            const eqEl = document.getElementById('outEquity');
+            const eqRow = document.getElementById('equityRow');
+            eqEl.textContent = formatCurrency(equity);
+
+            if (equity < 0) {
+                eqEl.style.color = 'var(--danger)';
+                eqRow.style.background = 'var(--danger-bg)';
+            } else {
+                eqEl.style.color = 'var(--success)';
+                eqRow.style.background = 'var(--success-bg)';
+            }
+
+            document.getElementById('outNetCash').textContent = formatCurrency(standardCashCost);
+            document.getElementById('outNetFinance').textContent = formatCurrency(standardFinanceCost);
+            document.getElementById('outTrueCash').textContent = formatCurrency(trueCostCash);
+            document.getElementById('outTrueFinance').textContent = formatCurrency(trueCostFinance);
+
+            const winnerEl = document.getElementById('outWinner');
+            if (trueCostFinance < trueCostCash) {
+                let diff = trueCostCash - trueCostFinance;
+                winnerEl.textContent = `Finance wins by ${formatCurrency(diff)}`;
+            } else {
+                let diff = trueCostFinance - trueCostCash;
+                winnerEl.textContent = `Cash wins by ${formatCurrency(diff)}`;
+            }
         }
 
-        let brokerCost = boatValueGross * brokerFeeRate;
-        let boatValueNet = boatValueGross - brokerCost;
-        
-        let equity = boatValueNet - balance;
-        let totalMaint = (annualCost * holdYears) + totalCountyTax; 
+        // Attach Listeners to inputs and select elements
+        document.querySelectorAll('input, select').forEach(el => {
+            el.addEventListener('input', calculate);
+        });
 
-        // Standard Net Cost (Out of pocket burned)
-        let standardCashCost = P + upfrontFees + totalMaint - boatValueNet;
-        let standardFinanceCost = upfrontFees + (payment * holdMonths) + totalMaint + (balance - boatValueNet);
-
-        // Opportunity Cost Math
-        let investFinance = P; 
-        for(let i=0; i<holdMonths; i++) {
-            investFinance = investFinance * (1 + marketRate) - payment;
-        }
-        
-        let investCash = 0; 
-        for(let i=0; i<holdMonths; i++) {
-            investCash = investCash * (1 + marketRate) + payment;
-        }
-
-        let totalAssetsCash = boatValueNet + investCash;
-        let trueCostCash = initialCapital + totalMaint - totalAssetsCash;
-        
-        let totalAssetsFinance = (boatValueNet - balance) + investFinance;
-        let trueCostFinance = initialCapital + totalMaint - totalAssetsFinance;
-
-        // Update DOM Elements
-        document.getElementById('outPayment').textContent = formatCurrency(payment);
-        document.getElementById('outUpfront').textContent = formatCurrency(upfrontFees);
-        document.getElementById('outCountyTax').textContent = formatCurrency(totalCountyTax);
-        document.getElementById('outBalance').textContent = formatCurrency(balance);
-        document.getElementById('outNetValue').textContent = formatCurrency(boatValueNet);
-        
-        const eqEl = document.getElementById('outEquity');
-        const eqRow = document.getElementById('equityRow');
-        eqEl.textContent = formatCurrency(equity);
-        
-        if (equity < 0) {
-            eqEl.style.color = 'var(--danger)';
-            eqRow.style.background = 'var(--danger-bg)';
-        } else {
-            eqEl.style.color = 'var(--success)';
-            eqRow.style.background = 'var(--success-bg)';
-        }
-
-        document.getElementById('outNetCash').textContent = formatCurrency(standardCashCost);
-        document.getElementById('outNetFinance').textContent = formatCurrency(standardFinanceCost);
-        document.getElementById('outTrueCash').textContent = formatCurrency(trueCostCash);
-        document.getElementById('outTrueFinance').textContent = formatCurrency(trueCostFinance);
-
-        const winnerEl = document.getElementById('outWinner');
-        if (trueCostFinance < trueCostCash) {
-            let diff = trueCostCash - trueCostFinance;
-            winnerEl.textContent = `Finance wins by ${formatCurrency(diff)}`;
-        } else {
-            let diff = trueCostFinance - trueCostCash;
-            winnerEl.textContent = `Cash wins by ${formatCurrency(diff)}`;
-        }
-    }
-
-    // Attach Listeners to inputs and select elements
-    document.querySelectorAll('input, select').forEach(el => {
-        el.addEventListener('input', calculate);
-    });
-
-    // Run initial calc
-    calculate();
-</script>
+        // Run initial calc
+        calculate();
+    </script>
 
 </body>
+
 </html>
